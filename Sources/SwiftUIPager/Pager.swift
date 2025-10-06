@@ -136,7 +136,7 @@ public struct Pager<Element, ID, PageView>: View  where PageView: View, Element:
     var allowsMultiplePagination: Bool = false
 
     /// Wheter `Pager` delays gesture recognition
-    var delaysTouches: Bool = true
+    var delaysTouchesValue: CGFloat = 20
 
     /// Priority selected to add `swipeGesture`
     var gesturePriority: GesturePriority = .default
@@ -221,7 +221,7 @@ public struct Pager<Element, ID, PageView>: View  where PageView: View, Element:
             .swipeInteractionArea(swipeInteractionArea)
             .allowsDragging(allowsDragging)
             .pagingPriority(gesturePriority)
-            .delaysTouches(delaysTouches)
+            .delaysTouchesValue(delaysTouchesValue)
             .sensitivity(sensitivity)
             .onDraggingBegan(onDraggingBegan)
             .onDraggingChanged(onDraggingChanged)

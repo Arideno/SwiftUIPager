@@ -100,8 +100,8 @@ extension Pager: Buildable {
     /// Makes `Pager` not delay gesture recognition
     ///
     /// - Parameter value: whether or not touches should be delayed
-    public func delaysTouches(_ value: Bool) -> Self {
-        mutating(keyPath: \.delaysTouches, value: value)
+    public func delaysTouchesValue(_ value: CGFloat) -> Self {
+        mutating(keyPath: \.delaysTouchesValue, value: value)
     }
 
     /// Disables dragging on `Pager`

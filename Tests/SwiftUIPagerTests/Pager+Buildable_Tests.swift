@@ -30,7 +30,7 @@ final class Pager_Buildable_Tests: XCTestCase {
         XCTAssertEqual(pager.itemSpacing, 0)
         XCTAssertEqual(pager.itemAlignment, .center)
         XCTAssertEqual(pager.swipeInteractionArea, .page)
-        XCTAssertTrue(pager.delaysTouches)
+        XCTAssertEqual(pager.delaysTouchesValue, 20)
         XCTAssertEqual(pager.gesturePriority, .default)
         XCTAssertEqual(pager.contentLoadingPolicy, .default)
         XCTAssertEqual(pager.allowsMultiplePagination, false)
@@ -44,7 +44,7 @@ final class Pager_Buildable_Tests: XCTestCase {
 
         let pagerContent = pager.content(for: CGSize(width: 100, height: 100))
         XCTAssertNil(pagerContent.direction)
-        XCTAssertEqual(pagerContent.minimumDistance, 15)
+        XCTAssertEqual(pagerContent.minimumDistance, 20)
         XCTAssertFalse(pagerContent.isDragging)
     }
 
@@ -101,7 +101,7 @@ final class Pager_Buildable_Tests: XCTestCase {
 
     func test_GivenPager_WhenDelaysTouchesFalse_ThenMinimumDistanceZero() {
         var pager = givenPager
-        pager = pager.delaysTouches(false)
+        pager = pager.delaysTouchesValue(0)
 
         let pagerContent = pager.content(for: CGSize(width: 100, height: 100))
         XCTAssertEqual(pagerContent.minimumDistance, 0)
